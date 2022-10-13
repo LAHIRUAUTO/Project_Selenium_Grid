@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test_Suite" thread-count="1" parallel="methods">
+<suite name="Test_Suite" thread-count="1" parallel="classes">
 
     <listeners>
         <listener class-name="Utilities.Listener"/>
@@ -15,14 +15,12 @@
     <parameter name="TestReportSenderMailAddress" value="dcs.selenium.report@gmail.com"/>
     <parameter name="TestReportSenderMailPassword" value="lmsbruovggrocqxk"/>
     <parameter name="TestReportReceiverMailAddress" value="vikasithasouth@gmail.com"/><!--vikasithasouth@gmail.com / ${reportReceiverMail}-->
-    <parameter name="browser" value="chrome"/><!--chrome / firefox / edge / chromeheadless / CDTchrome /  ${browserName}-->
+    <!--<parameter name="browser" value="chrome"/>chrome / firefox / edge / chromeheadless / CDTchrome /  ${browserName}-->
     <parameter name="platform" value="UNIX"/>
 
 
-    <test verbose="2" preserve-order="true" name="Sub_Suite_2">
-
-
-
+    <test verbose="2" preserve-order="true" name="Sub_Suite_1">
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="TestRunner.TestRunner">
                 <methods>
@@ -45,26 +43,37 @@
                     <exclude name="goToNewNestedFrameWindow"/>
                     <exclude name="goToModalDialogsWindow"/>
                     <include name="goToInteractionsWindow"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </methods>
-
             </class>
-
         </classes>
-
-
+    </test>
+    <test verbose="2" preserve-order="true" name="Sub_Suite_2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="TestRunner.TestRunner">
+                <methods>
+                    <exclude name="validateCurrentURL"/>
+                    <exclude name="registerForBookStoreApplication"/>
+                    <exclude name="goToWdgetsScreen"/>
+                    <exclude name="goToWdgetsScreen2"/>
+                    <exclude name="goToAccordian"/>
+                    <exclude name="goToSlider"/>
+                    <exclude name="goToProgressBar"/>
+                    <exclude name="goToToolTipsScreen"/>
+                    <exclude name="goToNewTab"/>
+                    <exclude name="goToNewWindow"/>
+                    <exclude name="goToNewMessageWindow"/>
+                    <exclude name="goToalert1"/>
+                    <exclude name="goToalert2"/>
+                    <exclude name="goToalert3"/>
+                    <exclude name="goToalert4"/>
+                    <exclude name="goToNewFrameWindow"/>
+                    <exclude name="goToNewNestedFrameWindow"/>
+                    <exclude name="goToModalDialogsWindow"/>
+                    <include name="goToInteractionsWindow"/>
+                </methods>
+            </class>
+        </classes>
     </test>
     <!--<test verbose="2" preserve-order="true" name="Sub_Suite_2">
         <parameter name="browser" value="firefox"/>
